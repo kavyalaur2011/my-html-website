@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zomato Clone</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; }
+        header { background: #d32323; color: white; text-align: center; padding: 15px; }
+        .search-bar { text-align: center; margin: 20px; }
+        .search-bar input { padding: 8px; width: 60%; max-width: 400px; }
+        .search-bar button { padding: 8px 15px; background: #d32323; color: white; border: none; cursor: pointer; }
+        .restaurants { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; padding: 20px; }
+        .card { background: white; border-radius: 8px; padding: 10px; width: 200px; text-align: center; }
+        .card img { width: 100%; height: 120px; border-radius: 8px; }
+        footer { background: #333; color: white; text-align: center; padding: 10px; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Zomato Clone</h1>
+</header>
+
+<div class="search-bar">
+    <input type="text" id="search-input" placeholder="Search restaurants...">
+    <button onclick="searchRestaurants()">Search</button>
+</div>
+
+<div class="restaurants" id="restaurant-list">
+    <div class="card" data-name="Italian Delight">
+        <img src="https://via.placeholder.com/200x120" alt="Italian Delight">
+        <p><b>Italian Delight</b></p>
+    </div>
+    <div class="card" data-name="Spicy Treats">
+        <img src="https://via.placeholder.com/200x120" alt="Spicy Treats">
+        <p><b>Spicy Treats</b></p>
+    </div>
+    <div class="card" data-name="Burger House">
+        <img src="https://via.placeholder.com/200x120" alt="Burger House">
+        <p><b>Burger House</b></p>
+    </div>
+    <div class="card" data-name="Sushi World">
+        <img src="https://via.placeholder.com/200x120" alt="Sushi World">
+        <p><b>Sushi World</b></p>
+    </div>
+    <div class="card" data-name="Tandoori Flames">
+        <img src="https://via.placeholder.com/200x120" alt="Tandoori Flames">
+        <p><b>Tandoori Flames</b></p>
+    </div>
+    <div class="card" data-name="Vegan Bites">
+        <img src="https://via.placeholder.com/200x120" alt="Vegan Bites">
+        <p><b>Vegan Bites</b></p>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2025 Zomato Clone</p>
+</footer>
+
+<script>
+    function searchRestaurants() {
+        const query = document.getElementById('search-input').value.toLowerCase();
+        const restaurants = document.querySelectorAll('.card');
+
+        restaurants.forEach(card => {
+            const name = card.getAttribute('data-name').toLowerCase();
+            if (name.includes(query)) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
